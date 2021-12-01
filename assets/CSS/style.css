@@ -18,6 +18,7 @@
     11, choice
     12, subscribe
     13, footer
+    14, modal
 */
 
 /* ========= 1, setting ========= */
@@ -1648,7 +1649,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--white);
 }
 
-/* ========= 5, subscribe ========= */
+/* ========= 12, subscribe ========= */
 .subscribe {
     background-color: var(--red);
     padding: 50px 0;
@@ -1690,7 +1691,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 16px;
   }
 
-/* ========= 6, footer ========= */
+/* ========= 13, footer ========= */
 .footer {
     background-color: var(--colorFoot);
 }
@@ -1815,6 +1816,553 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100%;
     vertical-align: middle;
 }
+
+/* ========= 14, modal ========= */
+.modal {
+    background-color: var(--darkMember);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 99999;
+}
+
+.modal .modal__item .modal__item-content {
+    margin: auto
+}
+.modal .modal__item .modal__item-content .content__body {
+    position: relative;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9;
+    opacity: 1;
+    text-shadow: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    line-height: 1;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-btn i {
+    font-size: 40px;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__left {
+    width: calc(100%*5/12);
+    background-position: center center;
+    background-size: cover;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right {
+    width: calc(100%*7/12);
+    background-color: var(--white);
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info {
+    padding: 50px;
+    text-align: center;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__text .info__text-header {
+    margin-bottom: 15px;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__text p {
+    color: var(--addressGray);
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__text .info__text-header h4 {
+    font-weight: 700;
+    margin: 0;
+    text-transform: capitalize;
+    line-height: normal;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__form .info__form-group {
+    margin-bottom: 16px;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__form .info__form-group input {
+    color: var(--black);
+    box-shadow: none;
+    height: 50px;
+    padding: 8px 15px;
+    border-radius: 0;
+    width: 100%;
+    border: 1px solid var(--touchGray);
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__form .info__form-group input:focus {
+    border-color: var(--lightBlue);
+    outline: 0;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__form .info__form-group button {
+    background-color: transparent;
+    border: 1px solid var(--lighterBlack);
+    overflow: hidden;
+    position: relative;
+    color: var(--white);
+    transition: all 0.8s ease 0s;
+    z-index: 1;
+    padding: 12px 35px;
+    width: 100%;
+    text-transform: uppercase!important;
+    border-radius: 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__form .info__form-group button:hover {
+    color: var(--lighterBlack);
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__form .info__form-group button::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #333;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+    width: 50%;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__form .info__form-group button::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+    width: 50%;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__form .info__form-group button:hover::before,
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__form .info__form-group button:hover::after {
+    width: 0;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__check .info__check-custom .custom__input {
+    display: none;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__check .info__check-custom .custom__label {
+    cursor: pointer;
+    position: relative;
+    color: var(--addressGray);
+    padding: 0;
+    vertical-align: middle;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__check .info__check-custom .custom__label::before {
+    content: "";
+    border: 2px solid var(--touchGray);
+    height: 17px;
+    width: 17px;
+    margin: 0px 8px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__check .info__check-custom .custom__label::after {
+    content: "";
+    width: 11px;
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    opacity: 0;
+    height: 6px;
+    border-left: 2px solid var(--white);
+    border-bottom: 2px solid var(--white);
+    transform: translateY(-65%) rotate(-45deg);
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__check .info__check-custom input[type="checkbox"]:checked + .custom__label::before {
+    background-color: var(--red);
+    border-color: var(--red);
+}
+.modal .modal__item .modal__item-content .content__body .content__body-row .row__right .row__right-info .info__check .info__check-custom input[type="checkbox"]:checked + .custom__label::after {
+    opacity: 1;
+}
+
+/* ========= 15, modal_Product ========= */
+.modalProduct {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: var(--darkMember);
+    color: var(--addressGray);
+    display: none;
+}
+.modalProduct .modalProduct__container {
+    min-height: 100%;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content {
+    margin: auto
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick {
+    max-width: 980px;
+    background-color: var(--white);
+    margin: 6px auto;
+    padding: 30px;
+    position: relative;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row {
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-decoration: none;
+    text-align: center;
+    opacity: 0.65;
+    font-style: normal;
+    font-size: 28px;
+    font-family: Arial, Baskerville, monospace;
+    width: 30px;
+    height: 30px;
+    line-height: normal;
+    background: transparent;
+    border: 0;
+    display: block;
+    outline: none;
+    cursor: pointer;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col {
+    width: calc(100%/2);
+    padding: 0 15px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-img {}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-img .img__box {
+    padding: 8px;
+    border: 1px solid var(--lighterGray);
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-img .img__box img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-img .img__galery {}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-img .img__galery .img__galery-box {
+    margin: 0 -5px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-img .img__galery .img__galery-box .box__track {}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-img .img__galery .img__galery-box .box__track .box__track-item {
+    width: calc(100%/4);
+    margin: 0 5px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-img .img__galery .img__galery-box .box__track .box__track-item a {
+    display: block;
+    padding: 5px;
+    border: 1px solid var(--lighterGray);
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-img .img__galery .img__galery-box .box__track .box__track-item a img {
+    display: block;
+    max-width: 100%;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail {}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc {}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-title {
+    margin-bottom: 8px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-title a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: var(--lightBlack);
+    font-weight: 600;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-price {
+    float: left;
+    margin-bottom: 5px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-price .price__value {
+    vertical-align: middle;
+    font-size: 26px;
+    color: var(--red);
+    font-weight: 600;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-price del {
+    font-size: 14px;
+    margin-right: 5px;
+    margin-left: 3px;
+    color: var(--addressGray);
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-price .price__sale {
+    display: inline-block;
+    color: var(--greenS);
+    font-size: 14px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-wrap {
+    float: right;
+    margin-top: 7px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-wrap .wrap__rating {
+    overflow: hidden;
+    position: relative;
+    height: 20px;
+    font-size: 12px;
+    width: 70px;
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    vertical-align: middle;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-wrap .wrap__rating::before {
+    font-size: 12px;
+    content: "\f005\f005\f005\f005\f005";
+    top: 0;
+    position: absolute;
+    left: 0;
+    float: left;
+    color: var(--yellowS);
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-wrap .wrap__rating .wrap__rating-percent {
+    overflow: hidden;
+    float: left;
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding-top: 1.5em;
+    color: var(--yellowS);
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-wrap .wrap__rating .wrap__rating-percent::before {
+    font-size: 12px;
+    content: "\f005\f005\f005\f005\f005";
+    top: 0;
+    position: absolute;
+    left: 0;
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-wrap .wrap__num {
+    font-size: 14px;
+    margin-left: 5px;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-info {
+    display: inline-block;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-info p {
+    margin-bottom: 15px;
+    line-height: 28px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-policy {
+    margin-bottom: 15px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-policy li {
+    font-size: 14px;
+    color: var(--lightBlack);
+    padding-bottom: 10px;
+    list-style: none;
+    padding-left: 22px;
+    position: relative;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-policy li i {
+    color: var(--red);
+    position: absolute;
+    font-size: 16px;
+    left: 0;
+    top: 3px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-color {
+    margin-bottom: 10px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-color .color__label {
+    float: left;
+    margin-right: 10px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-color .color__switch span {
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 100%;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-color .color__switch span.acTive::before {
+    content: "";
+    border: 2px solid var(--white);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: -3px;
+    border-radius: 100%;
+    box-shadow: 0 0 5px rgb(0 0 0 / 50%);
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-size {
+    margin-bottom: 10px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-size .size__label {
+    float: left;
+    margin-right: 10px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__desc .detail__desc-size .size__switch span {
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 32px;
+    display: inline-block;
+    border: 2px solid var(--lighterGray);
+    text-align: center;
+    height: 32px;
+    line-height: 28px;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart {
+    flex-wrap: wrap;
+    align-items: center;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-quantity {
+    margin: 7px 10px 7px 0;
+    display: table;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-quantity .quantity__num {
+    display: table;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-quantity .quantity__num .quantity__num-minus,
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-quantity .quantity__num .quantity__num-plus {
+    background-color: var(--lightGray);
+    display: block;
+    float: left;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    width: 34px;
+    height: 34px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 20px;
+    margin: 4px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-quantity .quantity__num .quantity__num-minus {
+    padding-left: 4px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-quantity .quantity__num .quantity__num-qty {
+    float: left;
+    width: 55px;
+    height: 36px;
+    border: 1px solid var(--lighterGray);
+    background-color: transparent;
+    text-align: center;
+    padding: 0;
+    margin: 3px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-quantity .quantity__num .quantity__num-plus {}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn {}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__click {
+    background-color: transparent;
+    border: 1px solid var(--red);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    line-height: normal;
+    padding: 12px 35px;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: .25rem;
+    font-size: 16px;
+    cursor: pointer;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__click:hover {
+    color: var(--red);
+}
+
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__click i {
+    font-size: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__click::before {
+    left: 0;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__click::after {
+    right: 0;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__click::before,
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__click::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: var(--red);
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+    width: 51%;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__click:hover:before,
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__click:hover:after {
+    width: 0;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__compare,
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__wishlist {
+    font-size: 20px;
+    display: inline-block;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__compare:hover,
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__cart .detail__cart-btn .btn__wishlist:hover {
+    color: var(--red);
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__meta li {
+    margin-top: 10px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__meta li a:hover {
+    color: var(--red);
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__share {
+    margin-top: 15px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__share span {
+    margin-right: 10px;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__share span,
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__share .detail__share-social {
+    vertical-align: middle;
+    display: inline-block;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__share .detail__share-social li {
+    display: inline-block;
+    padding: 0px 5px 5px 0;
+    padding-bottom: 0;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__share .detail__share-social li a {
+    font-size: 18px;
+    color: var(--addressGray);
+    height: 36px;
+    width: 36px;
+    line-height: 36px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+.modalProduct .modalProduct__container .modalProduct__container-content .content__quick .content__quick-row .row__col .row__col-detail .detail__share .detail__share-social li a:hover {
+    color: var(--red);
+}
+
 
 /* search overlay */
 .wrap {
@@ -2774,6 +3322,15 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 15%;
     width: 1px;
     background-color: var(--lighterGray);
+    }
+    .modal .modal__item {
+        max-width: 800px;
+    }
+}
+@media (min-width:476px) {
+    .modal .modal__item {
+        margin: 28px auto;
+        min-height: calc(100% - 3.5rem);
     }
 }
 @media (max-width:991.98px) {

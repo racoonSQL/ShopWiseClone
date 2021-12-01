@@ -73,3 +73,116 @@ iteM.forEach(element => {
         this.nextSibling.nextSibling.classList.toggle("activE");
     });
 });
+
+// Modal timeout
+
+// $(document).ready(function(){           
+//     $('#modal').modal('show');
+//       setTimeout(function() {$('#modal').modal('hide');}, 
+//             1000);
+// }); 
+
+function onPopupOpen() {
+$("#modal").show();
+// $("#yurEmail").focus();
+}
+
+function onPopupClose() {
+    $("#modal").hide();
+    // lastFocus.focus();
+}
+
+// function displayPopup() {
+//     $.colorbox({
+//       inline: true,
+//       href: "#modal",
+//       className: "cta",
+//       width: 850,
+//       height: 450,
+//       onComplete: onPopupOpen,
+//       onClosed: onPopupClose
+//     });
+//   }
+// var lastFocus;
+
+setTimeout(function() {
+    // lastFocus = document.activeElement;
+    onPopupOpen();
+}, 1500);
+
+$(".content__body-btn").click(function() {
+    onPopupClose();
+});
+
+
+
+// Modal Window Product
+(() => {
+    const modalBtns = Array.from(document.querySelectorAll(".otherPages"));
+    modalBtns.forEach(btn => {
+      btn.onclick = function(e) {
+        e.preventDefault();
+        const modal = btn.getAttribute('data-modal');
+        document.getElementById(modal).style.display = "block";
+        document.querySelector("body").style.overflow = 'hidden';
+      }
+    });
+    
+    const closeBtns = Array.from(document.querySelectorAll(".content__quick-close"));
+    closeBtns.forEach(btn => {
+      btn.onclick = function() {
+        let modal = btn.closest('.modalProduct');
+        modal.style.display = "none";
+        document.querySelector("body").style.overflow = 'visible';
+        var $n = $(this)
+        .parent(".content__quick")
+        .find(".quantity__num-qty");
+        $n.val(1);
+      }
+    });
+    
+    window.onclick = function(event) {
+        if (event.target.className === "modalProduct") {
+            event.target.style.display = "none";
+        }
+    }
+})();
+
+
+
+// Increase input value
+// function increaseValue() {
+//     var value = parseInt(document.getElementById('number').value, 10);
+//     value = isNaN(value) ? 0 : value;
+//     value++;
+//     document.getElementById('number').value = value;
+// }
+  
+// function decreaseValue() {
+//     var value = parseInt(document.getElementById('number').value, 10);
+//     value = isNaN(value) ? 0 : value;
+//     value < 1 ? value = 1 : '';
+//     value--;
+//     document.getElementById('number').value = value;
+// }
+
+
+var buttonPlus  = $(".quantity__num-plus");
+var buttonMinus = $(".quantity__num-minus");
+
+var incrementPlus = buttonPlus.click(function() {
+  var $n = $(this)
+  .parent(".quantity__num")
+  .find(".quantity__num-qty");
+  $n.val(Number($n.val())+1 );
+});
+
+var incrementMinus = buttonMinus.click(function() {
+  var $n = $(this)
+  .parent(".quantity__num")
+  .find(".quantity__num-qty");
+  var amount = Number($n.val());
+  if (amount > 0) {
+    $n.val(amount-1);
+  }
+});
